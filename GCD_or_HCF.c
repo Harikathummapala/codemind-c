@@ -1,11 +1,12 @@
 #include<stdio.h>
 int main()
 {
-    int a,b,i;
+    int a,b,c,i;
     scanf("%d%d",&a,&b);
-    for(i=a;i>0;i--)
+    c=a<b?a:b;
+    for(i=c;i>=1;i--)
     {
-        if(a%i==0 and b%i==0)
+        if(a%i==0 && b%i==0)
         {
             printf("%d",i);
             break;
