@@ -1,52 +1,45 @@
 #include<stdio.h>
+int fun(int i)
+{
+    int temp,rem,r;
+    temp=i;
+    r=0;
+    while(i)
+    {
+        rem=i%10;
+        r=r*10+rem;
+        i=i/10;
+    }
+    if(r==temp)
+    return 1;
+   return 0; 
+}
 int main()
 {
-    int n,i,j,rev=0,r,temp,next,prev,diff;
+    int n,i,j,t,k;
     scanf("%d",&n);
-    i=n+1;
-    j=n-1;
-    while(i>0)
+    for(i=n-1;i>0;i--)
     {
-        rev=0;
-        temp=i;
-        while(temp>0)
+        if(fun(i))
         {
-            r=temp%10;
-            rev=(rev*10)+r;
-            temp/=10;
+            k=i;
+            break;
         }
-        if(i==rev)
-        {
-         next=i;
-         break;
-        }
-        i++;
     }
-    while(j>0)
+    for(j=n+1;j<10000;j++)
     {
-        rev=0;
-        temp=j;
-        while(temp>0)
+        if(fun(j))
         {
-            r=temp%10;
-            rev=(rev*10)+r;
-            temp/=10;
+            t=j;
+            break;
         }
-        if(j==rev)
-        {
-         prev=j;
-         break;
-        }
-        j--;
     }
-    if(next-n==n-prev)
+    if(t-n==(n-k))
     {
-        printf("%d %d",prev,next);
-    }else if(next-n>n-prev)
-    {
-        printf("%d",prev);
-    }else{
-        printf("%d",next);
+        printf("%d %d",k,t);
     }
-    return 0;
+    else
+    {
+        printf("%d",k);
+    }
 }
