@@ -1,23 +1,31 @@
 #include<stdio.h>
-int main()
+int isprime(int s2)
 {
-    int a,b,c,i,j,fact;
-    scanf("%d%d",&a,&b);
-    c=a+b;
-    for(i=c+1;i>c;i++)
+    int i;
+    for(i=2;i<s2;i++)
     {
-        fact=0;
-        for(j=1;j<=i;j++)
+        if(s2%i==0)
         {
-            if(i%j==0)
-            {
-                fact++;
-            }
-        }
-        if(fact==2)
-        {
-            printf("%d",i-c);
-            break;
+            return 0;
         }
     }
+    return 1;
+}
+int fun(int s1)
+{
+    int i,s2;
+    for(i=1;i<=10;i++)
+    {
+        s2=s1+i;
+        if(isprime(s2))
+        return i;
+    }
+}
+int main()
+{
+    int a,b,c,s1,k,s2;
+    scanf("%d%d",&a,&b);
+    s1=a+b;
+    k=fun(s1);
+    printf("%d",k);
 }
