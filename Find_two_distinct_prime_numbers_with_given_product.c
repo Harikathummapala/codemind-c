@@ -1,34 +1,27 @@
 #include<stdio.h>
 int main()
 {
-    int n,i,j,su=0,sum=0,f;
+    int n,arr[100],i,j,t;
     scanf("%d",&n);
-    for(i=1;i<=n;i++)
+    for(i=2;i<n;i++)
     {
-        if(n%i==0)
+        if (n%i==0)
         {
-            f=0;
             for(j=1;j<=i;j++)
             {
-                if(i%j==0)
+                if (i%j==0)
                 {
-                    f++;
+                    t++;
                 }
             }
-            if(f==2)
+            if(t==2)
             {
-                if(su*i==n)
-                {
-                    printf("%d %d",su,i);
-                    sum++;
-                    break;
-                }
-                su=i;
+                printf("%d %d",i,n/i);
+                return 0;
             }
         }
-    }
-    if(sum==0)
-    {
+        if (i==n-1)
         printf("-1");
     }
+    
 }
